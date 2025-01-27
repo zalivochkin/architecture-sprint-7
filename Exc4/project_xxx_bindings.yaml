@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: project_xxx_manager_binding
+  namespace: project_xxx
+subjects:
+  - kind: User
+    name: project_xxx_manager
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: project_manager
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: project_xxx_user_binding
+  namespace: project_xxx
+subjects:
+  - kind: User
+    name: project_xxx_user
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: project_user
+  apiGroup: rbac.authorization.k8s.io
